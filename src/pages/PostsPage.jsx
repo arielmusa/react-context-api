@@ -1,23 +1,18 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-
-const apiUrl = "http://localhost:3000";
+import PostList from "../components/PostList";
 
 export default function PostsPage() {
-  const [postsList, setPostsList] = useState([]);
-
-  useEffect(() => {
-    axios.get(`${apiUrl}/posts`).then((res) => setPostsList(res.data));
-  }, []);
-
   return (
     <>
-      <div className="container">
+      <div className="container py-5">
         <div className="row">
-          <ul></ul>
-          {postsList.map((post) => (
-            <li>{post.title}</li>
-          ))}
+          <PostList />
+          {/* <ul>
+            {postsList.map((post) => (
+              <li>{post.title}</li>
+            ))}
+          </ul> */}
         </div>
       </div>
     </>
